@@ -29,15 +29,15 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "blank"
     },
-    "image7": {
-        "data": "hwQQABAAAAAAAAAAAP//DwAAAAAA7+7/AAAAAAAA8P8AAM8MAP///wDw3c3w7u7+AP+9++/u/vvw7u7u7/6+/e/u7u7u7r/9797d7e7u/v/v/d/d/v6+/e/d3dz979/9793dzf3v/v/w/e/N/fDe/QDf7c39AL/9AMDczQ8A8A8AAMDMAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "standRight"
-    },
     "*I3x=@AnYTeNAqrIrfN5": {
         "data": "hwQQABAAAAAAAMDMAAAAAADA3M0PAPAPAN/tzf0Av/3w/e/N/fDe/e/d3c397/7/793d3P3v3/3v/d/d/v6+/e/e3e3u7v7/7+7u7u7uv/3w7u7u7/6+/QD/vfvv7v77APDdzfDu7v4AAM8MAP///wAAAAAAAPD/AAAAAADv7v8AAAAAAP//Dw==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "standLeft"
+    },
+    "image7": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAACQmZkJAAAAAKCqqgoAAAAAoBERwQAAAAAQAQAAAAAAABAREcEAAACQGgEAAAAAAJAaAQAAAAAAmRoBAAAAmZmpGhERwQCqqqoRAQAAEBEREREREcEAEB8BAAAAAAAaEQEAAAAAMAAwAwAAAAACADACAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "standRight"
     },
     "nJ!v68=BJb:Abieo^Us1": {
         "namespace": "myImages",

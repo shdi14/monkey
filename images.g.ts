@@ -325,25 +325,6 @@ f 5 5 5 f . f 5 5 f . f 5 5 5 f
 . . . . . . f 5 5 f . . . . . . 
 . . . . . . . f f . . . . . . . 
 `;
-            case "image7":
-            case "standRight":return img`
-. . . . . . . f f f f f . . . . 
-. . . . . . f e e e e e f . . . 
-. . . . . f e e e d d d d f . . 
-. . . . f f e e d f d d f d c . 
-. . . f d d e e d f d d f d c . 
-. . . c d b e e d d d d e e d c 
-. . . c d b e e d d c d d d d c 
-. . . . c f e e e d d c c c c c 
-. . . . . f f e e e d d d d f . 
-. . . . f e e e e f f f f f . . 
-f f . f e e e e e e f f . . . . 
-f e . f e e f e e f e e f . . . 
-f e . f e e e f e e f e e f . . 
-f e f f e f b b f b d f d b f . 
-f f f f e b d d f d d f d d f . 
-. f f f f f f f f f f f f f . . 
-`;
             case "*I3x=@AnYTeNAqrIrfN5":
             case "standLeft":return img`
 . . . . f f f f f . . . . . . . 
@@ -362,6 +343,25 @@ c c c c c d d e e e f c . . . .
 . f b d f d b f b b f e f f e f 
 . f d d f d d f d d b e f f f f 
 . . f f f f f f f f f f f f f . 
+`;
+            case "image7":
+            case "standRight":return img`
+. . . . . . . . . . . . . . . 2 
+. . . . . . . . . . . 1 . . 3 . 
+. . . . . . . . . 9 a 1 . a . . 
+. . . . . . . . . 9 a 1 1 1 . . 
+. . . . . . . . . 9 a 1 f 1 . . 
+. . . . . . . . . 9 a 1 1 1 3 3 
+. . . . . . . . 9 9 a 1 1 1 3 2 
+. . . . . . 9 9 9 a a 1 . . . . 
+. . . . . . a a a a 1 1 . . . . 
+. 9 a a 1 1 1 1 1 1 1 1 . . . . 
+. 9 a 1 1 1 1 1 1 1 1 1 . . . . 
+. 9 a 1 . 1 . . . 1 . 1 . . . . 
+. 9 a 1 . 1 . . . 1 . 1 . . . . 
+. 9 a 1 . 1 . . . 1 . 1 . . . . 
+. 9 a 1 . 1 . . . 1 . 1 . . . . 
+. . . c . c . . . c . c . . . . 
 `;
         }
         return null;
