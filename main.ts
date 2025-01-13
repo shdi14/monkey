@@ -541,12 +541,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`chest1`, function (sprite, lo
 })
 scene.onHitWall(SpriteKind.Projectile, function (sprite, location) {
     sprite.setVelocity(0, 0)
-    tiles.setTileAt(location, assets.tile`myTile16`)
+    tiles.setTileAt(location, assets.image`splash1`)
     timer.after(100, function () {
-        tiles.setTileAt(location, assets.tile`myTile10`)
+        tiles.setTileAt(location, assets.image`splash2`)
     })
     timer.after(200, function () {
-        tiles.setTileAt(location, assets.tile`myTile11`)
+        tiles.setTileAt(location, assets.image`splash3`)
     })
     timer.after(300, function () {
         tiles.setWallAt(location, false)
