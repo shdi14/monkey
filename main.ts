@@ -2,9 +2,7 @@ namespace SpriteKind {
     export const Enemy2 = SpriteKind.create()
 }
 controller.up.onEvent(ControllerButtonEvent.Repeated, function () {
-    if (двойной_прыжок == 1) {
-        simplified.gravity_jump(mySprite, 100)
-    }
+    одиночныйПрыжок = false
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`collectibleBlueCrystal`, function (sprite, location) {
     myEnemy = sprites.create(img`
@@ -109,7 +107,15 @@ controller.anyButton.onEvent(ControllerButtonEvent.Pressed, function () {
             )
             sprites.setDataBoolean(mySprite, "isRight", true)
         } else if (controller.up.isPressed()) {
-            simplified.gravity_jump(mySprite, -200)
+            if (одиночныйПрыжок == true) {
+                уровеньГравитации = 200
+            } else {
+                if (двойной_прыжок == 1) {
+                    уровеньГравитации = 400
+                }
+            }
+            simplified.gravity_jump(mySprite, уровеньГравитации)
+            одиночныйПрыжок = true
             animation.runImageAnimation(
             mySprite,
             assets.animation`jump`,
@@ -136,6 +142,26 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, oth
     info.changeScoreBy(20)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`orange bauble`, function (sprite, location) {
+    if (controller.right.isPressed()) {
+        mySprite.x += 16
+        mySprite.x += 16
+        mySprite.x += 16
+    }
+    if (controller.left.isPressed()) {
+        mySprite.x += -16
+        mySprite.x += -16
+        mySprite.x += -16
+    }
+    if (controller.up.isPressed()) {
+        mySprite.y += -16
+        mySprite.y += -16
+        mySprite.y += -16
+    }
+    if (controller.down.isPressed()) {
+        mySprite.y += 16
+        mySprite.y += 16
+        mySprite.y += 16
+    }
     tiles.setTileAt(location, assets.tile`transparency16`)
     info.changeScoreBy(5)
 })
@@ -174,6 +200,32 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`orange bauble0`, function (sp
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     tiles.setWallAt(tiles.locationInDirection(tiles.locationOfSprite(mySprite), CollisionDirection.Bottom), true)
     tiles.setTileAt(tiles.locationInDirection(tiles.locationOfSprite(mySprite), CollisionDirection.Bottom), assets.tile`myTile3`)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.builtin.coral0, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`уровень7`)
+    for (let index = 0; index < 1; index++) {
+        myEnemy2 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 2 2 4 4 . . . . . . . 
+            . . . . . 4 2 2 4 2 4 . . . . . 
+            . . 4 4 4 4 4 2 2 2 4 4 . . . . 
+            . . 2 2 a a 2 2 2 a a 4 4 . . . 
+            . 4 4 4 2 2 4 4 4 2 4 4 4 . . . 
+            . 4 4 2 2 2 2 4 4 2 2 4 4 . . . 
+            . . 2 4 4 4 2 2 4 4 2 2 4 . . . 
+            . . . . 4 4 4 2 2 4 4 4 . . . . 
+            . . . . . 4 4 4 2 4 4 . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Enemy)
+        tiles.placeOnRandomTile(myEnemy2, assets.tile`myTile21`)
+        myEnemy2.follow(mySprite)
+    }
+    tiles.setTileAt(location, assets.tile`transparency16`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`chest2`, function (sprite, location) {
     game.over(true)
@@ -229,32 +281,6 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     sprites.destroy(myEnemy2, effects.fire, 100)
     info.changeScoreBy(10)
     sprites.destroy(myEnemy2, effects.spray, 500)
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile30`, function (sprite, location) {
-    tiles.setCurrentTilemap(tilemap`уровень7`)
-    for (let index = 0; index < 1; index++) {
-        myEnemy2 = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . 2 2 4 4 . . . . . . . 
-            . . . . . 4 2 2 4 2 4 . . . . . 
-            . . 4 4 4 4 4 2 2 2 4 4 . . . . 
-            . . 2 2 a a 2 2 2 a a 4 4 . . . 
-            . 4 4 4 2 2 4 4 4 2 4 4 4 . . . 
-            . 4 4 2 2 2 2 4 4 2 2 4 4 . . . 
-            . . 2 4 4 4 2 2 4 4 2 2 4 . . . 
-            . . . . 4 4 4 2 2 4 4 4 . . . . 
-            . . . . . 4 4 4 2 4 4 . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(myEnemy2, assets.tile`myTile21`)
-        myEnemy2.follow(mySprite)
-    }
-    tiles.setTileAt(location, assets.tile`transparency16`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile26`, function (sprite, location) {
     tiles.setTileAt(location, assets.tile`transparency16`)
@@ -377,8 +403,10 @@ let projectile: Sprite = null
 let aimY = 0
 let aimX = 0
 let crosshaire2: Sprite = null
-let myEnemy: Sprite = null
 let двойной_прыжок = 0
+let myEnemy: Sprite = null
+let одиночныйПрыжок = false
+let уровеньГравитации = 0
 let background: Image = null
 let mySprite: Sprite = null
 mySprite = sprites.create(assets.image`standLeft`, SpriteKind.Player)
@@ -391,3 +419,5 @@ background = assets.image`background`
 mySprite.setBounceOnWall(false)
 scene.setBackgroundImage(background)
 tiles.setTilemap(tilemap`level1`)
+уровеньГравитации = 200
+одиночныйПрыжок = true

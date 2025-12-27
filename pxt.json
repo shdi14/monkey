@@ -11,7 +11,8 @@
         "radio-broadcast": "*",
         "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.2.1",
         "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
-        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2"
+        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24"
     },
     "files": [
         "main.blocks",
@@ -21,14 +22,13 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "images.g.jres",
-        "images.g.ts",
-        "pxt.json"
+        "images.g.ts"
     ],
     "testFiles": [
         "test.ts"
     ],
     "targetVersions": {
-        "target": "2.0.48",
+        "target": "2.0.63",
         "targetId": "arcade"
     },
     "supportedTargets": [
